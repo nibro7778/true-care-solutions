@@ -4,7 +4,7 @@ A platform designed to streamline NDIS care management, participant tracking, an
 
 ## Features
 
-- **Participant & Caregiver Management**: Manage profiles and essential details.
+- **Clien & Staff Management**: Manage profiles and essential details.
 - **Care Activity Logging**: Log daily care tasks and activities.
 - **Invoicing**: Generate NDIS-compliant invoices.
 - **Basic Reporting**: Track hours worked by caregivers and care activities.
@@ -19,8 +19,8 @@ To get a local copy up and running, follow these steps:
 - [Docker](https://docs.docker.com/get-docker/)
 
 ## Usage
-- Create Participant and Caregiver Profiles: Set up basic profiles for participants and caregivers.
-- Schedule Caregivers: Assign caregivers to participants based on care requirements.
+- Create Client and Staff Profiles: Set up basic profiles for Client and Staff.
+- Schedule Staff: Assign Staff to Client based on care requirements.
 - Log Activities: Record daily care activities in the platform.
 - Generate Invoices: Create NDIS-compliant invoices for completed services.
 
@@ -29,7 +29,7 @@ To get a local copy up and running, follow these steps:
 Future phases will expand the platform to include:
 
 - Automated Invoicing
-- Participant Progress Tracking
+- Client Progress Tracking
 - Advanced Compliance Tools
 
 ## Contributing
