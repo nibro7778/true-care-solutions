@@ -1,6 +1,6 @@
 # NDIS Care Management Platform
 
-A platform designed to streamline NDIS care management, client tracking, and compliance for NDIS service providers in Australia. This initial MVP version includes core features for participant management, caregiver scheduling, invoicing, and reporting.
+A platform designed to streamline NDIS care management, client tracking, and compliance for NDIS service providers in Australia. This initial MVP version includes core features for client management, staff scheduling, invoicing, and reporting.
 
 ## Features
 
