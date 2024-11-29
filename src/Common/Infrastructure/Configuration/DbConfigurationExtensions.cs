@@ -7,7 +7,7 @@ public static class DbConfigurationExtensions
     public static string GetDbConnectionString(this IConfiguration configuration, string schema)
     {
         var username = configuration["DB_USERNAME"] ?? "admin";
-        var password = configuration["DB_PASSWORD"] ?? "password";
+        var password = configuration["DB_PASSWORD"] ?? "admin";
         var database = configuration["DB_DATABASE"] ?? "db";
         var host = configuration["DB_HOST"] ?? "localhost";
         var port = configuration["DB_PORT"] ?? "5432";
