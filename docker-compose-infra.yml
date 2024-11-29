@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+    ports:
+      - "5432:5432" # Maps the container's port 5432 to the host
+    volumes:
+      - postgres_data:/var/lib/postgresql/data # Persists the database data
+
+volumes:
+  postgres_data:

@@ -5,53 +5,55 @@ VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B1A3D915-1D45-4D0A-AC29-728AF727D299}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host", "src\Host\Host.csproj", "{E6CF5F0D-8A56-4C43-A6DB-989D5602CE2E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Host", "src\Host\Host.csproj", "{E6CF5F0D-8A56-4C43-A6DB-989D5602CE2E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "src\Common\Common.csproj", "{D424756B-9A98-47AA-8CD5-08188E5305A0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "src\Common\Common.csproj", "{D424756B-9A98-47AA-8CD5-08188E5305A0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{27B5727F-E258-414F-9E98-F13AEA750420}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Host.IntegrationTests", "tests\Host.IntegrationTests\Host.IntegrationTests.csproj", "{46135855-74AF-49E2-B4FE-65F2972FC869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Host.IntegrationTests", "tests\Host.IntegrationTests\Host.IntegrationTests.csproj", "{46135855-74AF-49E2-B4FE-65F2972FC869}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{DB5BEBFE-861F-40DD-8147-8C35AEE24802}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients", "src\Clients\Clients\Clients.csproj", "{26FBFB2C-593F-410F-84B7-AC6D611B405B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients", "src\Clients\Clients\Clients.csproj", "{26FBFB2C-593F-410F-84B7-AC6D611B405B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients.Contracts", "src\Clients\Clients.Contracts\Clients.Contracts.csproj", "{A693D938-7D09-48B1-A8C8-444AD24C361D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients.Contracts", "src\Clients\Clients.Contracts\Clients.Contracts.csproj", "{A693D938-7D09-48B1-A8C8-444AD24C361D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients.Api", "src\Clients\Clients.Api\Clients.Api.csproj", "{352A5DF5-05F9-4668-9406-C879F35B04A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients.Api", "src\Clients\Clients.Api\Clients.Api.csproj", "{352A5DF5-05F9-4668-9406-C879F35B04A7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients.Web", "src\Clients\Clients.Web\Clients.Web.csproj", "{302754ED-1C51-402E-8AC8-E4C483FA516A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients.Web", "src\Clients\Clients.Web\Clients.Web.csproj", "{302754ED-1C51-402E-8AC8-E4C483FA516A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{A2DD925A-6997-4C7C-94AD-625ED99DD8FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients.IntegrationTests", "tests\Clients\Clients.IntegrationTests\Clients.IntegrationTests.csproj", "{2426FD30-5E81-4379-BADB-2CD307095D33}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients.IntegrationTests", "tests\Clients\Clients.IntegrationTests\Clients.IntegrationTests.csproj", "{2426FD30-5E81-4379-BADB-2CD307095D33}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Clients.UnitTests", "tests\Clients\Clients.UnitTests\Clients.UnitTests.csproj", "{10E6F722-559F-4428-898A-4B7224C4F789}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Clients.UnitTests", "tests\Clients\Clients.UnitTests\Clients.UnitTests.csproj", "{10E6F722-559F-4428-898A-4B7224C4F789}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Staffs", "Staffs", "{370DD1EC-70F2-47BF-87F4-64600440C66C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staffs", "src\Staffs\Staffs\Staffs.csproj", "{0AB917AC-5A3D-4BA3-881C-A85384F335C0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs", "src\Staffs\Staffs\Staffs.csproj", "{0AB917AC-5A3D-4BA3-881C-A85384F335C0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staffs.Contracts", "src\Staffs\Staffs.Contracts\Staffs.Contracts.csproj", "{BB43A788-5426-456D-9CC9-810CC9A42945}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs.Contracts", "src\Staffs\Staffs.Contracts\Staffs.Contracts.csproj", "{BB43A788-5426-456D-9CC9-810CC9A42945}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staffs.Api", "src\Staffs\Staffs.Api\Staffs.Api.csproj", "{86767E50-5232-45CB-9CFF-BAF2D567D838}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs.Api", "src\Staffs\Staffs.Api\Staffs.Api.csproj", "{86767E50-5232-45CB-9CFF-BAF2D567D838}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staffs.Web", "src\Staffs\Staffs.Web\Staffs.Web.csproj", "{9C2BB5C6-547B-4125-A5F0-98A967DA6BA4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs.Web", "src\Staffs\Staffs.Web\Staffs.Web.csproj", "{9C2BB5C6-547B-4125-A5F0-98A967DA6BA4}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Staffs", "Staffs", "{C1266D66-0FA9-4C25-B4B2-54AB9DF2C2BE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staffs.IntegrationTests", "tests\Staffs\Staffs.IntegrationTests\Staffs.IntegrationTests.csproj", "{CA5C2FED-1BE9-4D98-B5D9-BD6F1F5FE556}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs.IntegrationTests", "tests\Staffs\Staffs.IntegrationTests\Staffs.IntegrationTests.csproj", "{CA5C2FED-1BE9-4D98-B5D9-BD6F1F5FE556}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Staffs.UnitTests", "tests\Staffs\Staffs.UnitTests\Staffs.UnitTests.csproj", "{28A1A96B-52E6-45C0-8DBA-7CA6A2FBD45D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs.UnitTests", "tests\Staffs\Staffs.UnitTests\Staffs.UnitTests.csproj", "{28A1A96B-52E6-45C0-8DBA-7CA6A2FBD45D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".infra", ".infra", "{A2E67BE5-DA38-4651-A951-CAA7A946F287}"
+	ProjectSection(SolutionItems) = preProject
+		docker-compose-infra.yml = docker-compose-infra.yml
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(SolutionProperties) = preSolution
-		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{E6CF5F0D-8A56-4C43-A6DB-989D5602CE2E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -115,6 +117,9 @@ Global
 		{28A1A96B-52E6-45C0-8DBA-7CA6A2FBD45D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{28A1A96B-52E6-45C0-8DBA-7CA6A2FBD45D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{E6CF5F0D-8A56-4C43-A6DB-989D5602CE2E} = {B1A3D915-1D45-4D0A-AC29-728AF727D299}
 		{D424756B-9A98-47AA-8CD5-08188E5305A0} = {B1A3D915-1D45-4D0A-AC29-728AF727D299}
@@ -135,5 +140,8 @@ Global
 		{C1266D66-0FA9-4C25-B4B2-54AB9DF2C2BE} = {27B5727F-E258-414F-9E98-F13AEA750420}
 		{CA5C2FED-1BE9-4D98-B5D9-BD6F1F5FE556} = {C1266D66-0FA9-4C25-B4B2-54AB9DF2C2BE}
 		{28A1A96B-52E6-45C0-8DBA-7CA6A2FBD45D} = {C1266D66-0FA9-4C25-B4B2-54AB9DF2C2BE}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3A8086D1-2873-41A4-A5B7-262166701D45}
 	EndGlobalSection
 EndGlobal

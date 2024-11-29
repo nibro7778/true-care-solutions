@@ -26,11 +26,11 @@ builder.Services.Configure<MvcRazorRuntimeCompilationOptions>(options =>
 });
 
 // queue
-builder.Services
-    .AddHostedService<QueueJob>()
-    .AddSingleton<QueueProcessor>()
-    .AddSingleton<QueueRepository>()
-    .AddSingleton<EventPublisher>();
+//builder.Services
+//    .AddHostedService<QueueJob>()
+//    .AddSingleton<QueueProcessor>()
+//    .AddSingleton<QueueRepository>()
+//    .AddSingleton<EventPublisher>();
 
 var app = builder.Build();
 if (app.Environment.IsDevelopment())
