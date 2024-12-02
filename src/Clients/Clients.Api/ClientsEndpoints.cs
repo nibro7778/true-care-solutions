@@ -11,13 +11,12 @@ public static class ClientsEndpoints
     public static void UseModuleEndpoints(this WebApplication app)
     {
         var root = ClientsApiAssemblyInfo.Assembly.GetName().Name;
-        var path = $"/{root}/widgets";
+        var path = $"/{root}/hello";
         app.MapGet(path, async (CancellationToken token) =>
             {
-                var results = await ModuleModule.SendQuery(new ListWidgets.Query(),token);
-                return Results.Ok(results);
+                return Results.Ok("hello");
             })
-            .WithName($"{root} - GetWidgets ")
+            .WithName($"{root} - GetClient ")
             .WithOpenApi();
     }
 }

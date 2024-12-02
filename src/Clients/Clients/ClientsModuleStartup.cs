@@ -26,7 +26,7 @@ public class ClientsModuleStartup : IModuleStartup
 
     public void Startup()
     {
-       // var connectionString = _configuration.GetDbConnectionString(Schema);
+        var connectionString = _configuration.GetDbConnectionString(Schema);
         var assembly = Assembly.GetExecutingAssembly();
 
         var assemblies = new[]
@@ -43,12 +43,12 @@ public class ClientsModuleStartup : IModuleStartup
             .AddMediatR(c => c.RegisterServicesFromAssemblies(assemblies))
             .AddValidatorsFromAssemblies(assemblies)
             // infrastructure
-            //.AddScoped<IDbConnectionFactory, DbConnectionFactory>(serviceProvider =>
-            //{
-            //    var log = serviceProvider.GetRequiredService<ILogger<DbConnectionFactory>>();
-            //    return new DbConnectionFactory(connectionString, log);
-            //})
-            //.AddScoped<IWidgetRepository, WidgetRepository>()
+            .AddScoped<IDbConnectionFactory, DbConnectionFactory>(serviceProvider =>
+            {
+                var log = serviceProvider.GetRequiredService<ILogger<DbConnectionFactory>>();
+                return new DbConnectionFactory(connectionString, log);
+            })
+            .AddScoped<IClientRepository, ClientRepository>()
             // logging
             .AddLogging(c => { c.AddProvider(_logs).AddSimpleConsole(c => c.SingleLine = true); })
             // builder container
@@ -56,7 +56,7 @@ public class ClientsModuleStartup : IModuleStartup
 
         CompositionRoot.SetProvider(provider);
 
-        //DbMigrations.Apply(Schema, connectionString, assembly, reset: false);
+        DbMigrations.Apply(Schema, connectionString, assembly, reset: false);
 
         DefaultTypeMap.MatchNamesWithUnderscores = true;
     }

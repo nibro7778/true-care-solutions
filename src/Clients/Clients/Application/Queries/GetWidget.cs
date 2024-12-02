@@ -7,8 +7,8 @@ public static class GetWidget
     public class Response
     {
         public Guid Id { get; init; }
-        public string Name { get; init; } = null!;
-        public decimal Price { get; init; }
+        public required string FirstName { get; init; }
+        public string? LastName { get; init; }
     }
 
     public class Validator : AbstractValidator<Query>
@@ -25,13 +25,13 @@ public static class GetWidget
         {
             var id = query.Id;
 
-            const string sql = $"SELECT * FROM {WidgetsTable} WHERE {IdColumn}=@id";
+            const string sql = $"SELECT * FROM {ClientTable} WHERE {IdColumn}=@id";
             var command = new CommandDefinition(sql, new { id }, cancellationToken: token);
             var connection = await connections.OpenAsync();
             var result = await connection.QuerySingleOrDefaultAsync<Response>(command);
             if (result == null)
             {
-                throw new BusinessRuleValidationException($"Widget with id {id} not found");
+                throw new BusinessRuleValidationException($"Client with id {id} not found");
             }
 
             return result;
