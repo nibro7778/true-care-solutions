@@ -1,12 +1,13 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using Microsoft.Data.SqlClient;
+using Microsoft.Extensions.Logging;
 
 namespace Common.Infrastructure;
 
 public class DbConnectionFactory(string connectionString, ILogger<DbConnectionFactory> log) : IDbConnectionFactory, IDisposable, IAsyncDisposable
 {
-    private NpgsqlConnection? _connection;
+    private SqlConnection? _connection;
 
-    public async Task<NpgsqlConnection> OpenAsync()
+    public async Task<SqlConnection> OpenAsync()
     {
         if (_connection is not null)
         {
@@ -15,7 +16,7 @@ public class DbConnectionFactory(string connectionString, ILogger<DbConnectionFa
         }
         
         log.LogInformation("Opening new connection");
-        _connection = new NpgsqlConnection(connectionString);
+        _connection = new SqlConnection(connectionString);
         await _connection.OpenAsync();
         return _connection;
     }

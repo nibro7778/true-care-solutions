@@ -6,7 +6,7 @@ namespace Clients.Api;
 
 public static class ClientsEndpoints
 {
-    private static readonly ClientsModule ModuleModule = new();
+    private static readonly ClientsModule ClientModule = new();
     
     public static void UseModuleEndpoints(this WebApplication app)
     {

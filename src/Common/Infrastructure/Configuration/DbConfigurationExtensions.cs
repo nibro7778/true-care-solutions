@@ -6,12 +6,13 @@ public static class DbConfigurationExtensions
 {
     public static string GetDbConnectionString(this IConfiguration configuration, string schema)
     {
-        var username = configuration["DB_USERNAME"] ?? "admin";
-        var password = configuration["DB_PASSWORD"] ?? "admin";
-        var database = configuration["DB_DATABASE"] ?? "db";
-        var host = configuration["DB_HOST"] ?? "localhost";
-        var port = configuration["DB_PORT"] ?? "5432";
-        var connectionString = $"Username={username};Password={password};Database={database};Host={host};Port={port};Search Path={schema};Include Error Detail=true;Log Parameters=true";
+        //TODO: Update following
+        //var username = configuration["DB_USERNAME"] ?? "sa";
+        //var password = configuration["DB_PASSWORD"] ?? "Admin1234!";
+        //var database = configuration["DB_DATABASE"] ?? "clie";
+        //var host = configuration["DB_HOST"] ?? "localhost";
+        //var port = configuration["DB_PORT"] ?? "1433";
+        var connectionString = $"Server=localhost,1433;Database=clients_module;User Id=sa;Password=Admin1234!;TrustServerCertificate=True";
         return connectionString;
     }
 }

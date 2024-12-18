@@ -25,7 +25,8 @@ public static class GetWidget
         {
             var id = query.Id;
 
-            const string sql = $"SELECT * FROM {ClientTable} WHERE {IdColumn}=@id";
+            //const string sql = $"SELECT * FROM {ClientTable} WHERE {IdColumn}=@id";
+            const string sql = $"SELECT * FROM {ClientTable}";
             var command = new CommandDefinition(sql, new { id }, cancellationToken: token);
             var connection = await connections.OpenAsync();
             var result = await connection.QuerySingleOrDefaultAsync<Response>(command);

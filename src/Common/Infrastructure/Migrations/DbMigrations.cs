@@ -35,10 +35,9 @@ public static class DbMigrations
 
     private static ServiceProvider BuildServiceProvider(string schema, string connectionString, Assembly assembly) =>
         new ServiceCollection()
-            .AddSingleton<IConventionSet>(new DefaultConventionSet(schema, null))
             .AddFluentMigratorCore()
             .ConfigureRunner(runner => runner
-                .AddPostgres()
+                .AddSqlServer()
                 .WithGlobalConnectionString(connectionString)
                 .ScanIn(assembly).For.Migrations())
             .BuildServiceProvider();

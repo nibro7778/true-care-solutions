@@ -1,6 +1,7 @@
-﻿namespace Common.Infrastructure;
+﻿using Microsoft.Data.SqlClient;
+namespace Common.Infrastructure;
 
 public interface IDbConnectionFactory
 {
-    Task<NpgsqlConnection> OpenAsync();
+    Task<SqlConnection> OpenAsync();    
 }
