@@ -6,4 +6,5 @@ public interface IClientRepository
 {
     Task<bool> Exists(Guid id);
     Task Add(Client client);
+    Task<Client?> Get(Guid id);
 }
