@@ -25,4 +25,8 @@
     <ProjectReference Include="..\..\..\src\Staffs\Staffs\Staffs.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Domain\" />
+  </ItemGroup>
+
 </Project>

@@ -1,5 +1,8 @@
 using Clients;
 using Clients.Api;
+using Microsoft.Extensions.Options;
+using Staffs;
+using Staffs.Api;
 
 internal class Program
 {
@@ -11,13 +14,21 @@ internal class Program
         // configuration to support API documentation and tooling. Specifically,
         // it registers the ability to generate OpenAPI/Swagger documentation for minimal APIs
         builder.Services.AddEndpointsApiExplorer();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddSwaggerGen(options =>
+        {
+            options.CustomSchemaIds(type =>
+            {
+                return type.FullName!.Replace("+", ".");
+            });
+        });
 
         var module = typeof(ClientsModule).Assembly;
 
         // modules
         builder.Services.AddSingleton<IClients, ClientsModule>();
         builder.Services.AddSingleton<ClientsModuleStartup>();
+        builder.Services.AddSingleton<IStaffs, StaffsModule>();
+        builder.Services.AddSingleton<StaffsModuleStartup>();
 
         // ui
         builder.Services
@@ -48,15 +59,18 @@ internal class Program
         app.UseRouting();
         // app.UseAuthentication();
         // app.UseAuthorization();
-        app.UseModuleEndpoints();
+        app.UseClientsEndpoints();
+        app.UseStaffsEndpoints();
 
-        app.MapGet("/meta/name", () => Assembly.GetExecutingAssembly().GetName());
+
         app.MapGet("/health/alive", () => "alive");
         app.MapGet("/health/ready", () => "ready");
         app.MapRazorPages();
 
         // module endpoints
         app.Services.GetRequiredService<ClientsModuleStartup>().Startup();
+        app.Services.GetRequiredService<StaffsModuleStartup>().Startup();
+
 
         app.Run();
     }

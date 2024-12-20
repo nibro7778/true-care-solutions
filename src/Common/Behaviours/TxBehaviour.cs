@@ -1,7 +1,6 @@
 ﻿using Common.Infrastructure;
 using MediatR;
 using Microsoft.Extensions.Logging;
-
 namespace Common.Behaviours;
 
 public class TxBehaviour<TRequest, TResponse>(IDbConnectionFactory connections, ILogger<TRequest> log) : IPipelineBehavior<TRequest, TResponse>
@@ -14,6 +13,7 @@ public class TxBehaviour<TRequest, TResponse>(IDbConnectionFactory connections, 
         var tx = await connection.BeginTransactionAsync(cancellationToken);
         try
         {
+            TransactionContext.SetTransaction(tx);
             var result = await next();
             log.LogInformation("Committing transaction");
             await tx.CommitAsync(cancellationToken);
@@ -24,6 +24,10 @@ public class TxBehaviour<TRequest, TResponse>(IDbConnectionFactory connections, 
             log.LogError(e, "Error executing transaction");
             await tx.RollbackAsync(cancellationToken);
             throw;
+        }
+        finally
+        {
+            TransactionContext.ClearTransaction();
         }
     }
 }

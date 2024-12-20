@@ -48,7 +48,7 @@ public class StaffsModuleStartup : IModuleStartup
                 var log = serviceProvider.GetRequiredService<ILogger<DbConnectionFactory>>();
                 return new DbConnectionFactory(connectionString, log);
             })
-            .AddScoped<IWidgetRepository, WidgetRepository>()
+            .AddScoped<IStaffRepository, StaffRepository>()
             // logging
             .AddLogging(c => { c.AddProvider(_logs).AddSimpleConsole(c => c.SingleLine = true); })
             // builder container
