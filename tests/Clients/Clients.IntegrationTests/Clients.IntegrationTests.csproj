@@ -9,7 +9,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.4.0"/>
+    <PackageReference Include="FluentAssertions" Version="7.0.0" />
+    <PackageReference Include="MartinCostello.Logging.XUnit" Version="0.4.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.EnvironmentVariables" Version="8.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
@@ -27,6 +28,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\src\Clients\Clients\Clients.csproj" />
+    <ProjectReference Include="..\..\Host.IntegrationTests\Host.IntegrationTests.csproj" />
   </ItemGroup>
 
 </Project>

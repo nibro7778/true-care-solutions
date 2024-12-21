@@ -1,12 +1,11 @@
 ﻿namespace Host.IntegrationTests.Fixtures;
 
-[Collection(nameof(ServiceFixtureCollection))]
 public class BaseTest
 {
     protected readonly HttpClient Client;
-    protected readonly ServiceFixture Service;
+    protected readonly TestFixture Service;
 
-    protected BaseTest(ServiceFixture service, ITestOutputHelper output)
+    protected BaseTest(TestFixture service, ITestOutputHelper output)
     {
         Service = service;
         Service.OutputHelper = output;

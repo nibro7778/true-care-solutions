@@ -1,7 +1,5 @@
 ﻿using Common.Infrastructure.Integration;
 using Microsoft.Extensions.Logging;
-using Clients.Contracts;
-using System.Xml.Linq;
 
 namespace Clients.Application.Commands;
 

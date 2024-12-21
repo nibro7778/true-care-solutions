@@ -2,8 +2,10 @@ using Host.IntegrationTests.Fixtures;
 
 namespace Host.IntegrationTests;
 
-public class HealthTests(ServiceFixture service, ITestOutputHelper output) : BaseTest(service, output)
+public class HealthTests : BaseTest, IClassFixture<TestFixture>
 {
+    public HealthTests(TestFixture service, ITestOutputHelper output) : base(service, output) { }
+
     [Fact]
     public async Task Service_should_be_alive() =>
         (await Client.GetAsync("/health/alive")).EnsureSuccessStatusCode();
