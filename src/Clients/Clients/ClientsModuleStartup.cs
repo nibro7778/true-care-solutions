@@ -26,7 +26,7 @@ public class ClientsModuleStartup : IModuleStartup
 
     public void Startup()
     {
-        var connectionString = _configuration.GetDbConnectionString(Database);
+        var connectionString = _configuration.GetConnectionString(Schema);
         var assembly = Assembly.GetExecutingAssembly();
 
         var assemblies = new[]
@@ -56,16 +56,16 @@ public class ClientsModuleStartup : IModuleStartup
 
         CompositionRoot.SetProvider(provider);
 
-        DbMigrations.Apply(Database, connectionString, assembly, reset: false);
+        DbMigrations.Apply(connectionString, assembly, reset: false);
 
         DefaultTypeMap.MatchNamesWithUnderscores = true;
     }
 
     public void Destroy()
     {
-        var connectionString = _configuration.GetDbConnectionString(Database);
+        var connectionString = _configuration.GetDbConnectionString(Schema);
         var assembly = Assembly.GetExecutingAssembly();
 
-        DbMigrations.Apply(Database, connectionString, assembly, reset: false);
+        DbMigrations.Apply(connectionString, assembly, reset: false);
     }
 }

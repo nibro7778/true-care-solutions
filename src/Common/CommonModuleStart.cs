@@ -9,11 +9,11 @@ public class CommonModuleStart(IConfiguration configuration) : IModuleStartup
 {
     public void Startup()
     {
-        DbMigrations.Apply("common", configuration.GetDbConnectionString("common"), Assembly.GetExecutingAssembly());
+        DbMigrations.Apply(configuration.GetDbConnectionString("common"), Assembly.GetExecutingAssembly());
     }
 
     public void Destroy()
     {
-        DbMigrations.Apply("common", configuration.GetDbConnectionString("common"), Assembly.GetExecutingAssembly(), reset: true);
+        DbMigrations.Apply(configuration.GetDbConnectionString("common"), Assembly.GetExecutingAssembly(), reset: true);
     }
 }

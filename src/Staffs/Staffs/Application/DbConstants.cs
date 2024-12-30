@@ -2,6 +2,6 @@
 
 public static class DbConstants
 {
-    public static readonly string Schema = "staffs".ToLowerInvariant() + "_module";
+    public static readonly string Schema = "Staffs";
     public const string StaffTable = "Staffs";
 }

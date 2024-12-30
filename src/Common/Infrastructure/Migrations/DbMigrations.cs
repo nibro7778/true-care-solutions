@@ -1,6 +1,5 @@
 using System.Reflection;
 using FluentMigrator.Runner;
-using FluentMigrator.Runner.Conventions;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Polly;
@@ -13,9 +12,9 @@ public static class DbMigrations
     private const int RetryAttempts = 10;
     private static readonly TimeSpan RetryInterval = TimeSpan.FromSeconds(1);
 
-    public static void Apply(string schema, string connectionString, Assembly assembly, bool reset = false)
+    public static void Apply(string connectionString, Assembly assembly, bool reset = false)
     {
-        using var provider = BuildServiceProvider(schema, connectionString, assembly);
+        using var provider = BuildServiceProvider(connectionString, assembly);
         var logs = provider.GetRequiredService<ILogger<IMigrationRunner>>();
         var policy = BuildRetryPolicy(logs);
         policy.Execute(() =>
@@ -33,7 +32,7 @@ public static class DbMigrations
         });
     }
 
-    private static ServiceProvider BuildServiceProvider(string schema, string connectionString, Assembly assembly) =>
+    private static ServiceProvider BuildServiceProvider(string connectionString, Assembly assembly) =>
         new ServiceCollection()
             .AddFluentMigratorCore()
             .ConfigureRunner(runner => runner

@@ -45,14 +45,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs.IntegrationTests", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Staffs.UnitTests", "tests\Staffs\Staffs.UnitTests\Staffs.UnitTests.csproj", "{28A1A96B-52E6-45C0-8DBA-7CA6A2FBD45D}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".infra", ".infra", "{A2E67BE5-DA38-4651-A951-CAA7A946F287}"
-	ProjectSection(SolutionItems) = preProject
-		.infra\docker-compose-infra.yml = .infra\docker-compose-infra.yml
-	EndProjectSection
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{558C9E00-7307-41EB-925E-4191B659AFB7}"
 	ProjectSection(SolutionItems) = preProject
 		.infra\docker-compose-infra.yml = .infra\docker-compose-infra.yml
+		docker-compose-integration.yml = docker-compose-integration.yml
 		docker-compose.yml = docker-compose.yml
 		Dockerfile = Dockerfile
 	EndProjectSection

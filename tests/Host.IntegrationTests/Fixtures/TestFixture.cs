@@ -3,6 +3,8 @@ using Testcontainers.MsSql;
 
 namespace Host.IntegrationTests.Fixtures;
 
+// This fixture manage SQL server container lifecycle and
+// Use the WebApplicationFactory to customize the host configuration for integration tests
 public class TestFixture : WebApplicationFactory<HostAssemblyInfo>, ITestOutputHelperAccessor, IAsyncLifetime
 {
     public ITestOutputHelper? OutputHelper { get; set; }
@@ -10,8 +12,9 @@ public class TestFixture : WebApplicationFactory<HostAssemblyInfo>, ITestOutputH
 
     public TestFixture()
     {
-        _sqlContainer = new MsSqlBuilder()
-            .WithPassword("Admin1234!")
+        _sqlContainer = new MsSqlBuilder()        
+            .WithPortBinding(1500, true)
+            .WithAutoRemove(true)
             .Build();
     }
 
@@ -19,11 +22,9 @@ public class TestFixture : WebApplicationFactory<HostAssemblyInfo>, ITestOutputH
     {
         await _sqlContainer.StartAsync();
 
-        // Set environment variables for the test connection
-        Environment.SetEnvironmentVariable("DB_HOST", _sqlContainer.Hostname);
-        Environment.SetEnvironmentVariable("DB_PORT", "1433");
-        Environment.SetEnvironmentVariable("DB_USERNAME", "sa");
-        Environment.SetEnvironmentVariable("DB_PASSWORD", "Admin1234!");
+       // Set environment variables for the test connection
+        Environment.SetEnvironmentVariable("ConnectionStrings:Clients", _sqlContainer.GetConnectionString());
+        Environment.SetEnvironmentVariable("ConnectionStrings:Staffs", _sqlContainer.GetConnectionString());
     }
 
     protected override void ConfigureWebHost(IWebHostBuilder builder)
@@ -36,10 +37,8 @@ public class TestFixture : WebApplicationFactory<HostAssemblyInfo>, ITestOutputH
     {
         await _sqlContainer.StopAsync();
 
-        // Clean up environment variables
-        Environment.SetEnvironmentVariable("DB_HOST", null);
-        Environment.SetEnvironmentVariable("DB_PORT", null);
-        Environment.SetEnvironmentVariable("DB_USERNAME", null);
-        Environment.SetEnvironmentVariable("DB_PASSWORD", null);
+        // Cleanup environment variable
+        Environment.SetEnvironmentVariable("ConnectionStrings:Clients", null);
+        Environment.SetEnvironmentVariable("ConnectionStrings:Staffs", null);
     }
 }

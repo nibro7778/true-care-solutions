@@ -17,15 +17,16 @@ COPY . .
 # Restory dependencies
 RUN dotnet restore
 
-WORKDIR "/sln/src/Host"
+# Build
+RUN dotnet build -c Release
 
-RUN dotnet build -c $BUILD_CONFIGURATION
+# Test
+From build As tests
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /sln/src/Host
-RUN dotnet publish --no-build -c $BUILD_CONFIGURATION -o /app/publish
+RUN dotnet publish --no-build -c Release -o /app/publish
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
