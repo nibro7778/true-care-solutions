@@ -4,7 +4,7 @@ namespace Host.IntegrationTests;
 
 public class HealthTests : BaseTest, IClassFixture<TestFixture>
 {
-    public HealthTests(TestFixture service, ITestOutputHelper output) : base(service, output) { }
+    public HealthTests(TestFixture service) : base(service) { }
 
     [Fact]
     public async Task Service_should_be_alive() =>

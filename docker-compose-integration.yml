@@ -1,11 +1,27 @@
+version: '3.8'
+
 services:
+  sqlserver:
+    image: mcr.microsoft.com/mssql/server:2019-latest
+    container_name: sqlserver
+    environment:
+      ACCEPT_EULA: "Y"
+      SA_PASSWORD: "Admin1234!"
+    ports:
+      - "1433:1433"
+    healthcheck:
+      test: ["CMD-SHELL", "sqlcmd -S localhost -U SA -P Admin1234! -Q 'SELECT 1'"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+
   tests:
     image: truecaresolutions-tests
     build:
       context: .
       target: tests
     environment:
-      - ASPNETCORE_ENVIRONMENT=Development      
+      - ASPNETCORE_ENVIRONMENT=Development
     entrypoint:
       - dotnet
       - test
@@ -14,5 +30,7 @@ services:
       - --logger=trx
       - --results-directory=/tmp
     volumes:
-      - /var/run/docker.sock:/var/run/docker.sock
-      - /tmp:/tmp
+      - ./test-results:/tmp
+    depends_on:
+      sqlserver:
+        condition: service_healthy

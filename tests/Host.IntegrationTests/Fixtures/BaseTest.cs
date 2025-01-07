@@ -5,10 +5,9 @@ public class BaseTest
     protected readonly HttpClient Client;
     protected readonly TestFixture Service;
 
-    protected BaseTest(TestFixture service, ITestOutputHelper output)
+    protected BaseTest(TestFixture service)
     {
         Service = service;
-        Service.OutputHelper = output;
-        Client = service.CreateDefaultClient();
+        Client = service.CreateDefaultClient();        
     }
 }
