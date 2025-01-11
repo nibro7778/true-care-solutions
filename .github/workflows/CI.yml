@@ -27,6 +27,7 @@ jobs:
 
       # Step 3: Log in to AWS ECR
       - name: Log in to AWS ECR
+        id: login-ecr
         uses: aws-actions/amazon-ecr-login@v1
 
       # Step 4: Run integration tests using Docker Compose
@@ -40,9 +41,11 @@ jobs:
         run: docker compose build
 
       # Step 6: Push Docker image to ECR
-      - name: Push Docker Image to ECR
+      - name: Tag and Push Docker Image to ECR
+        env:
+         ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
+         ECR_REPOSITORY: turecaresolutions/platform         
         run: |
           IMAGE_TAG=$(date +%Y%m%d%H%M%S)
-          ECR_URI=$(aws ecr describe-repositories --repository-names ${{ secrets.AWS_ECR_REPOSITORY_NAME }} --query 'repositories[0].repositoryUri' --output text)
-          docker tag truecaresolutions-webapp:latest $ECR_URI:$IMAGE_TAG
-          docker push $ECR_URI:$IMAGE_TAG
+          docker tag truecare-solutions-platform $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
+          docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
