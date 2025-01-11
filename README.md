@@ -9,6 +9,11 @@ A platform designed to streamline NDIS care management, client tracking, and com
 - **Invoicing**: Generate NDIS-compliant invoices.
 - **Basic Reporting**: Track hours worked by caregivers and care activities.
 
+## Architecture Diagram
+<p>
+<img src="docs/architecture.diagram.png">
+<p>
+
 ## Installation
 
 To get a local copy up and running, follow these steps:
