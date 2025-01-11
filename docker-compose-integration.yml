@@ -9,6 +9,8 @@ services:
       SA_PASSWORD: "Admin1234!"
     ports:
       - "1433:1433"
+    networks:
+      - app-network
     healthcheck:
       test: ["CMD-SHELL", "sqlcmd -S localhost -U SA -P Admin1234! -Q 'SELECT 1'"]
       interval: 10s
@@ -22,10 +24,18 @@ services:
       target: tests
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionStrings:Clients=Server=sqlserver;Database=tempdb;User Id=sa;Password=Admin1234!;TrustServerCertificate=True
+      - ConnectionStrings:Staffs=Server=sqlserver;Database=tempdb;User Id=sa;Password=Admin1234!;TrustServerCertificate=True
     entrypoint:
       - dotnet
       - test
       - -c=Release
       - --no-build
+    networks:
+      - app-network
     depends_on:
       - sqlserver
+
+networks:
+  app-network:
+    driver: bridge
