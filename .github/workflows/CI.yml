@@ -1,0 +1,40 @@
+name: CI Pipeline for truecare-solutions
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build-test-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Log in to AWS ECR
+      - name: Log in to AWS ECR
+        uses: aws-actions/amazon-ecr-login@v1
+
+      # Step 3: Run integration tests using Docker Compose
+      - name: Run Integration Tests
+        run: |
+          docker-compose -f docker-compose-integration.yml up --build --abort-on-container-exit
+          docker-compose -f docker-compose-integration.yml down
+
+      # Step 4: Build Docker image
+      - name: Build Docker Image
+        run: docker-compose build
+
+      # Step 5: Push Docker image to ECR
+      - name: Push Docker Image to ECR
+        run: |
+          IMAGE_TAG=$(date +%Y%m%d%H%M%S)
+          ECR_URI=$(aws ecr describe-repositories --repository-names ${{ secrets.ECR_REPOSITORY_NAME }} --query 'repositories[0].repositoryUri' --output text)
+          docker tag truecaresolutions-webapp:latest $ECR_URI:$IMAGE_TAG
+          docker push $ECR_URI:$IMAGE_TAG
