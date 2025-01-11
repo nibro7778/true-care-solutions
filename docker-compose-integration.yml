@@ -28,5 +28,4 @@ services:
       - -c=Release
       - --no-build
     depends_on:
-      sqlserver:
-        condition: service_healthy
+      - sqlserver
