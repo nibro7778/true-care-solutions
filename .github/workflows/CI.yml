@@ -35,6 +35,6 @@ jobs:
       - name: Push Docker Image to ECR
         run: |
           IMAGE_TAG=$(date +%Y%m%d%H%M%S)
-          ECR_URI=$(aws ecr describe-repositories --repository-names ${{ secrets.ECR_REPOSITORY_NAME }} --query 'repositories[0].repositoryUri' --output text)
+          ECR_URI=$(aws ecr describe-repositories --repository-names ${{ secrets.AWS_ECR_REPOSITORY_NAME }} --query 'repositories[0].repositoryUri' --output text)
           docker tag truecaresolutions-webapp:latest $ECR_URI:$IMAGE_TAG
           docker push $ECR_URI:$IMAGE_TAG
