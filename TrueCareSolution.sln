@@ -60,6 +60,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{E3FFBC24-5
 		docs\architecture.diagram.png = docs\architecture.diagram.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "k8s", "k8s", "{FE02B908-561F-4CD4-9858-D52A2A39AA3D}"
+	ProjectSection(SolutionItems) = preProject
+		k8s\ndis-deployment.yaml = k8s\ndis-deployment.yaml
+		k8s\ndis-service.yml = k8s\ndis-service.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

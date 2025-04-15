@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ndis-app-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ndis-app
+  template:
+    metadata:
+      labels:
+        app: ndis-app
+    spec:
+      containers:
+      - name: ndis-app
+        image: <your_ecr_repo_url>/ndis-app:latest
+        ports:
+        - containerPort: 80
